@@ -12,3 +12,8 @@ The CITY table is described as follows:
 | COUNTRYCODE | VARCHAR2(3) |
 | DISTRICT | VARCHAR2(40) |
 | POPULATION | NUMBER |
+
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
