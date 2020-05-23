@@ -1,0 +1,7 @@
+select N,
+case when p is null then 'Root'
+when not exists (select * from bst b where b.p=a.n) then 'Leaf'
+else 'Inner'
+end
+from bst a
+order by N asc;
