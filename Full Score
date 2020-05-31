@@ -1,0 +1,8 @@
+select distinct hacker_id, name from
+(select h.hacker_id, h.name, count(distinct c.challenge_id) as full_count from submissions s join challenges c on s.challenge_id = c.challenge_id
+join difficulty d on c.difficulty_level = d.difficulty_level 
+join hackers h on s.hacker_id = h.hacker_id
+where d.score = s.score
+group by h.hacker_id, h.name)
+where full_count > 1
+order by full_count desc, hacker_id asc;
