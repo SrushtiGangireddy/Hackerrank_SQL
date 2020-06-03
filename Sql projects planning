@@ -1,0 +1,6 @@
+select a.start_date, min(end_date) as ed from
+(select start_date from projects where start_date not in (select end_date from projects)) a,
+(select end_date from projects where end_date not in (select start_date from projects)) b
+where start_date < end_date
+group by a.start_date
+order by to_date(ed, 'yyyy-mm-dd') - to_date(start_date, 'yyyy-mm-dd'), start_date;
